@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "260813564460",
+    "firebase_url": "https://academia-91dac.firebaseio.com",
+    "project_id": "academia-91dac",
+    "storage_bucket": "academia-91dac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:260813564460:android:c2fa1d1c11c6a3d1",
+        "android_client_info": {
+          "package_name": "com.example.ravenmargret.academia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "260813564460-hei8ktuc1r4pmldondp3kfok8ivlfl0j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD03FyMIYOEWtAyI7NpVkJ0AH59Ll-oV9Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
