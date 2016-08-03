@@ -64,7 +64,7 @@ public class DetailActivity extends Activity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.actio2n_delete)
+        if (id == R.id.action_delete)
         {
             FormFragment fragment = (FormFragment) getFragmentManager().findFragmentById(R.id.container);
             fragment.writeNewUser(cid, first, last, age);

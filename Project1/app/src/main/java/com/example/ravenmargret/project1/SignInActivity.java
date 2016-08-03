@@ -161,7 +161,8 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
     }
     // [END signin]
 
-    private void signOut() {
+    private void signOut()
+    {
         // Firebase sign out
         mAuth.signOut();
 
