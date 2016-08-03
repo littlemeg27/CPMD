@@ -16,7 +16,6 @@ public class FirebaseService
     FirebaseDatabase androidFormDatabase = FirebaseDatabase.getInstance();
     DatabaseReference androidFormRef = androidFormDatabase.getReference("Form");
 
-
     public void getData()
     {
         androidFormRef.addValueEventListener(new ValueEventListener()

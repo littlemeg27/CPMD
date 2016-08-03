@@ -7,7 +7,6 @@
     <string name="signed_out">signed_out</string>
     <string name="google_status_fmt">google_status_fmt</string>
     <string name="firebase_status_fmt">firebase_status_fmt</string>
-    <string name="default_web_client_id">default_web_client_id</string>
     <string name="desc_firebase_lockup">desc_firebase_lockup</string>
     <string name="google_title_text">google_title_text</string>
     <string name="sign_out">sign_out</string>
