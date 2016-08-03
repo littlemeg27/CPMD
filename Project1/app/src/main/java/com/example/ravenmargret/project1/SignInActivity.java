@@ -29,6 +29,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
+import java.util.concurrent.Semaphore;
+
 public class SignInActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener, View.OnClickListener
 {
     private static final String TAG = "GoogleActivity";
@@ -41,12 +43,15 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
     private TextView mStatusTextView;
     private TextView mDetailTextView;
 
+    String e;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
+
+        Log.e(e, "Test");
 
         mStatusTextView = (TextView) findViewById(R.id.status);
         mDetailTextView = (TextView) findViewById(R.id.detail);
@@ -72,7 +77,6 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
         mAuth = FirebaseAuth.getInstance();
 
 
-        // [START auth_state_listener]
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -108,11 +112,10 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-            if (result.isSuccess()) {
-                // Google Sign In was successful, authenticate with Firebase
+            if (result.isSuccess())
+            {
                 GoogleSignInAccount account = result.getSignInAccount();
                 firebaseAuthWithGoogle(account);
             } else {
@@ -150,7 +153,6 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
 
     private void signOut()
     {
-
         mAuth.signOut();
 
         // Google sign out
@@ -176,14 +178,18 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
                 });
     }
 
-    private void updateUI(FirebaseUser user) {
-        if (user != null) {
+    private void updateUI(FirebaseUser user)
+    {
+        if (user != null)
+        {
             mStatusTextView.setText(getString(R.string.google_status_fmt, user.getEmail()));
             mDetailTextView.setText(getString(R.string.firebase_status_fmt, user.getUid()));
 
             findViewById(R.id.sign_in_button).setVisibility(View.GONE);
             findViewById(R.id.sign_out_and_disconnect).setVisibility(View.VISIBLE);
-        } else {
+        }
+        else
+        {
             mStatusTextView.setText(R.string.signed_out);
             mDetailTextView.setText(null);
 
