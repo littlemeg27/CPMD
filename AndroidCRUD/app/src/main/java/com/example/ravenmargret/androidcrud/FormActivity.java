@@ -14,6 +14,10 @@ import android.view.MenuItem;
 public class FormActivity extends AppCompatActivity
 {
     FragmentManager manager;
+    String cid;
+    String first;
+    String last;
+    Double age;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -45,10 +49,10 @@ public class FormActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_save_finished)
+        if (id == R.id.action_save)
         {
-            FormFragment formFragment = (formFragment) getFragmentManager().findFragmentById(R.id.container);
-            formFragment.writeNewUser(cid, name, weight, grade);
+            FormFragment formFragment = (FormFragment)getFragmentManager().findFragmentById(R.id.container);
+            formFragment.writeNewUser(cid, first, last, age);
 
             return true;
         }

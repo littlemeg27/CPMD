@@ -44,11 +44,8 @@ public class DetailActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_save_finished)
+        if (id == R.id.action_delete)
         {
-            DetailFragment fragment = (detailFragment) getFragmentManager().findFragmentById(R.id.container);
-            fragment.writeNewUser(cid, name, weight, grade);
-
             return true;
         }
 
