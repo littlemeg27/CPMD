@@ -1,20 +1,19 @@
-/**
- * Created by Brenna Pavlinchak on 08/02/16.
- */
+// Brenna Pavlinchak
+// MDF3 - 1605
+// Form Fragment
 
 package com.example.ravenmargret.project1;
-
 
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class FormFragment extends Fragment
 {
@@ -37,7 +36,6 @@ public class FormFragment extends Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState)
     {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_form, container, false);
     }
 
@@ -45,6 +43,8 @@ public class FormFragment extends Fragment
     public void onActivityCreated(Bundle savedInstanceState)
     {
         super.onActivityCreated(savedInstanceState);
+
+        androidFormDatabase = FirebaseDatabase.getInstance().getReference();
 
         firstNameText = (EditText)getView().findViewById(R.id.firstNameText);
         lastNameText = (EditText)getView().findViewById(R.id.lastNameText);

@@ -1,21 +1,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.ravenmargret.java2project3.DetailFragment"
+    tools:context="com.example.ravenmargret.myapplication.DetailFragment"
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/firstTextView"
+        android:id="@+id/firstNameTextView"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:text="First Name"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/lastTextView"
+        android:id="@+id/lastNameTextView"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:text="Last Name"/>
@@ -27,11 +29,5 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:text="Age"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Delete Person"
-        android:id="@+id/deletePersonButton"/>
 
 </LinearLayout>

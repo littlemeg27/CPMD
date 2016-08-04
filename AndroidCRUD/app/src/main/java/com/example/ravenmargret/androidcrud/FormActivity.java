@@ -1,24 +1,19 @@
-/**
- * Created by Brenna Pavlinchak on 08/02/16.
- */
+package com.example.ravenmargret.androidcrud;
 
-package com.example.ravenmargret.project1;
-
-import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.content.Context;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class FormActivity extends Activity
+public class FormActivity extends AppCompatActivity
 {
     FragmentManager manager;
-    String cid;
-    String first;
-    String last;
-    Double age;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -29,12 +24,12 @@ public class FormActivity extends Activity
         manager = getFragmentManager();
 
         FormFragment formFragment = new FormFragment();
-        showFormFragment(formFragment);
+        showFragment(formFragment);
     }
 
-    private void showFormFragment(Fragment formFrag)
+    private void showFragment(Fragment formFrag)
     {
-        manager.beginTransaction().replace(R.id.container, formFrag).commit();
+        manager.beginTransaction().replace(R.id.container, formFrag, "formFrag").commit();
     }
 
     @Override
@@ -47,16 +42,13 @@ public class FormActivity extends Activity
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_save_finished)
         {
-            FormFragment fragment = (FormFragment) getFragmentManager().findFragmentById(R.id.container);
-            fragment.writeNewUser(cid, first, last, age);
+            FormFragment formFragment = (formFragment) getFragmentManager().findFragmentById(R.id.container);
+            formFragment.writeNewUser(cid, name, weight, grade);
 
             return true;
         }

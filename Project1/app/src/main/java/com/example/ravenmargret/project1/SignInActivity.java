@@ -73,9 +73,7 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
 
-
         mAuth = FirebaseAuth.getInstance();
-
 
         mAuthListener = new FirebaseAuth.AuthStateListener()
         {
@@ -97,11 +95,11 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
     }
 
     @Override
-    public void onStart() {
+    public void onStart()
+    {
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
     }
-
 
     @Override
     public void onStop()
@@ -133,7 +131,8 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
         }
     }
 
-    private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
+    private void firebaseAuthWithGoogle(GoogleSignInAccount acct)
+    {
         Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
 
 
@@ -157,11 +156,11 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
                 });
     }
 
-    private void signIn() {
+    private void signIn()
+    {
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
-
 
     private void signOut()
     {
@@ -171,7 +170,8 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
         Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
                 new ResultCallback<Status>() {
                     @Override
-                    public void onResult(@NonNull Status status) {
+                    public void onResult(@NonNull Status status)
+                    {
                         updateUI(null);
                     }
                 });
@@ -182,9 +182,11 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
 
 
         Auth.GoogleSignInApi.revokeAccess(mGoogleApiClient).setResultCallback(
-                new ResultCallback<Status>() {
+                new ResultCallback<Status>()
+                {
                     @Override
-                    public void onResult(@NonNull Status status) {
+                    public void onResult(@NonNull Status status)
+                    {
                         updateUI(null);
                     }
                 });
@@ -207,6 +209,9 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
 
             findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
             findViewById(R.id.sign_out_and_disconnect).setVisibility(View.GONE);
+
+            Intent nextActivity = new Intent(this, PersonListActivity.class);
+            startActivity(nextActivity);
         }
     }
 
@@ -217,8 +222,10 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
     }
 
     @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
+    public void onClick(View v)
+    {
+        switch (v.getId())
+        {
             case R.id.sign_in_button:
                 signIn();
                 break;

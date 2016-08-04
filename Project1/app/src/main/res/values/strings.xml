@@ -11,4 +11,5 @@
     <string name="google_title_text">google_title_text</string>
     <string name="sign_out">sign_out</string>
     <string name="disconnect">disconnect</string>
+    <string name="action_add">action_add</string>
 </resources>

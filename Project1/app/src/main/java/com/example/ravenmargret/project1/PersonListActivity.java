@@ -9,17 +9,23 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 public class PersonListActivity extends Activity implements View.OnClickListener, PersonListFragment.OnFragmentInteractionListener
 {
     FragmentManager manager;
+    String cid;
+    String first;
+    String last;
+    Double age;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list);
+        setContentView(R.layout.activity_person_list);
 
         manager = getFragmentManager();
 
@@ -46,11 +52,10 @@ public class PersonListActivity extends Activity implements View.OnClickListener
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
         super.onActivityResult(requestCode, resultCode, data);
-        //Refresh list here
-        //Find person list frag call load data to update list
-        PersonListFragment fragment = (PersonListFragment) getFragmentManager().findFragmentById(R.id.container); //Re call the entire frag
-        fragment.loadData(); //Call the method inside the frag
-    }   //I find this a really weird way to do things but if it works it works
+
+        PersonListFragment fragment = (PersonListFragment) getFragmentManager().findFragmentById(R.id.container);
+        fragment.loadData();
+    }
 
     @Override
     public void onFragmentInteraction(Form formObject)
@@ -60,5 +65,32 @@ public class PersonListActivity extends Activity implements View.OnClickListener
         Intent intent = new Intent(this, DetailActivity.class);
         intent.putExtras(extras);
         startActivityForResult(intent, 45454545);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        getMenuInflater().inflate(R.menu.menu_form, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_save_finished)
+        {
+            FormFragment fragment = (FormFragment) getFragmentManager().findFragmentById(R.id.container);
+            fragment.writeNewUser(cid, first, last, age);
+
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

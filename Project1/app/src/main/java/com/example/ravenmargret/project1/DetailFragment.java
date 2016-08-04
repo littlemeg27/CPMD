@@ -53,10 +53,10 @@ public class DetailFragment extends Fragment implements View.OnClickListener
 
     public void updateText(Form object)
     {
-        TextView firstTextView = (TextView) getActivity().findViewById(R.id.firstTextView);
+        TextView firstTextView = (TextView) getActivity().findViewById(R.id.firstNameTextView);
         firstTextView.setText(object.getmFirstName());
 
-        TextView lastTextView = (TextView) getActivity().findViewById(R.id.lastTextView);
+        TextView lastTextView = (TextView) getActivity().findViewById(R.id.lastNameTextView);
         lastTextView.setText(object.getmLastName());
 
         TextView ageTextView = (TextView) getActivity().findViewById(R.id.ageTextView);
@@ -67,13 +67,6 @@ public class DetailFragment extends Fragment implements View.OnClickListener
     public void onClick(View v)
     {
         Toast.makeText(getActivity(), "Contact Deleted", Toast.LENGTH_LONG).show();
-
-        //Form form;
-        //FormUtil.delete(form, getActivity());
-
-//        Form form = new Form(firstName, lastName, age);
-//        FormUtil.delete(form, getActivity());
-        //Tried to add delete button, ran out of time to finish dealing with the call for it resets just isnt deleting
 
         getActivity().finish();
     }
