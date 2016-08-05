@@ -16,6 +16,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class FormFragment extends Fragment
 {
     private static final String TAG = "NewPostActivity";
@@ -112,12 +114,23 @@ public class FormFragment extends Fragment
 
     public void writeNewUser(String userId, String firstName, String lastName, Double age)
     {
-        Form form = new Form(firstName, lastName, age);
+        String newage = Double.toString(age);
+        String key = androidFormDatabase.child("Form").push().getKey();
+        Post post = new Post(userId, firstName, lastName, newage);
 
-        Toast.makeText(getActivity(), "Contact Added", Toast.LENGTH_LONG).show();
+        ArrayList<Post> postValues = new ArrayList<>(post);
 
-        androidFormDatabase.child("Form").child(userId).setValue(form);
+        ArrayList<String> childUpdates = new ArrayList<>();
+        childUpdates.add(key, postValues);
+        childUpdates.add("/user-posts/" + userId + "/" + key, postValues);
 
-        getActivity().finish();
+        androidFormDatabase.updateChildren(childUpdates);
+//        Form form = new Form(firstName, lastName, age);
+//
+//        Toast.makeText(getActivity(), "Contact Added", Toast.LENGTH_LONG).show();
+//
+//        androidFormDatabase.child("Form").child(userId).setValue(form);
+//
+//        getActivity().finish();
     }
 }
