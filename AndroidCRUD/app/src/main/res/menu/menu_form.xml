@@ -7,6 +7,5 @@
         android:orderInCategory="100"
         android:title="@string/action_save"
         app:showAsAction="ifRoom"
-        android:icon="@android:drawable/ic_menu_save"
-        tools:ignore="AppCompatResource" />
+        android:icon="@android:drawable/ic_menu_save" />
 </menu>

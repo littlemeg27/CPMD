@@ -22,6 +22,9 @@ public class PersonListActivity extends AppCompatActivity implements PersonListF
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_person_list);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         manager = getFragmentManager();
 
         PersonListFragment personListFragment = new PersonListFragment();
@@ -32,13 +35,6 @@ public class PersonListActivity extends AppCompatActivity implements PersonListF
     {
         manager.beginTransaction().replace(R.id.container, personFrag, "personFrag").commit();
     }
-
-//    @Override
-//    public void onClick(View v)
-//    {
-////        Intent nextActivity = new Intent(this, FormActivity.class);
-////        startActivityForResult(nextActivity, 27272727);
-//    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
@@ -73,6 +69,8 @@ public class PersonListActivity extends AppCompatActivity implements PersonListF
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_add)
         {
+            Intent nextActivity = new Intent(this, FormActivity.class);
+            startActivityForResult(nextActivity, 2727);
             return true;
         }
 

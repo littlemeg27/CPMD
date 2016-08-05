@@ -8,7 +8,6 @@
         android:orderInCategory="100"
         android:title="@string/action_delete"
         app:showAsAction="ifRoom"
-        android:icon="@android:drawable/ic_menu_delete"
-        tools:ignore="AppCompatResource" />
+        android:icon="@android:drawable/ic_menu_delete" />
 
 </menu>

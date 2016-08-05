@@ -25,6 +25,9 @@ public class FormActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         manager = getFragmentManager();
 
         FormFragment formFragment = new FormFragment();
@@ -40,7 +43,7 @@ public class FormActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu)
     {
         getMenuInflater().inflate(R.menu.menu_form, menu);
-        return super.onCreateOptionsMenu(menu);
+        return true;
     }
 
     @Override
