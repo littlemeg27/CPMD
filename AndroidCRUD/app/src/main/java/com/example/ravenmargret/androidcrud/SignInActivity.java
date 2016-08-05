@@ -125,7 +125,7 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
                 GoogleSignInAccount account = result.getSignInAccount();
                 firebaseAuthWithGoogle(account);
 
-                Intent nextActivity = new Intent(this, PersonListFragment.class);
+                Intent nextActivity = new Intent(this, PersonListActivity.class);
                 startActivity(nextActivity);
             }
             else
@@ -211,7 +211,9 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
 
             findViewById(R.id.sign_in_button).setVisibility(View.GONE);
             findViewById(R.id.sign_out_and_disconnect).setVisibility(View.VISIBLE);
-        } else {
+        }
+        else
+        {
             mStatusTextView.setText(R.string.signed_out);
             mDetailTextView.setText(null);
 
@@ -221,7 +223,8 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
     }
 
     @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult)
+    {
         // An unresolvable error has occurred and Google APIs (including Sign-In) will not
         // be available.
         Log.d(TAG, "onConnectionFailed:" + connectionResult);
@@ -229,8 +232,10 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
     }
 
     @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
+    public void onClick(View v)
+    {
+        switch (v.getId())
+        {
             case R.id.sign_in_button:
                 signIn();
                 break;

@@ -22,8 +22,8 @@ public class PersonListActivity extends AppCompatActivity implements PersonListF
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_person_list);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
 
         manager = getFragmentManager();
 
@@ -58,7 +58,7 @@ public class PersonListActivity extends AppCompatActivity implements PersonListF
     public boolean onCreateOptionsMenu(Menu menu)
     {
         getMenuInflater().inflate(R.menu.menu_personlist, menu);
-        return super.onCreateOptionsMenu(menu);
+        return true;
     }
 
     @Override

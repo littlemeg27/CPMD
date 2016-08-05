@@ -14,10 +14,6 @@ import android.view.MenuItem;
 public class FormActivity extends AppCompatActivity
 {
     FragmentManager manager;
-    String cid;
-    String first;
-    String last;
-    Double age;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -25,8 +21,8 @@ public class FormActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
 
         manager = getFragmentManager();
 
@@ -55,7 +51,7 @@ public class FormActivity extends AppCompatActivity
         if (id == R.id.action_save)
         {
             FormFragment formFragment = (FormFragment)getFragmentManager().findFragmentById(R.id.container);
-            formFragment.writeNewUser(cid, first, last, age);
+            formFragment.submitPost();
 
             return true;
         }

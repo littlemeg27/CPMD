@@ -14,8 +14,8 @@
 
     <string name="title_activity_list">ListActivity</string>
     <string name="signed_out">Signed Out</string>
-    <string name="google_status_fmt">google_status_fmt</string>
-    <string name="firebase_status_fmt">firebase_status_fmt</string>
+    <string name="google_status_fmt">Google Status</string>
+    <string name="firebase_status_fmt">Firebase Status</string>
     <string name="desc_firebase_lockup">desc_firebase_lockup</string>
     <string name="google_title_text">Google</string>
     <string name="disconnect">disconnect</string>

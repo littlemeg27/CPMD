@@ -21,8 +21,8 @@ public class DetailActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
 
         manager = getFragmentManager();
 
@@ -39,7 +39,7 @@ public class DetailActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu)
     {
         getMenuInflater().inflate(R.menu.menu_detail, menu);
-        return super.onCreateOptionsMenu(menu);
+        return true;
     }
 
     @Override
