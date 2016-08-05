@@ -77,37 +77,36 @@ public class FormFragment extends Fragment
 //            return;
 //        }
 
+        FirebaseDatabase androidFormDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference androidFormRef = androidFormDatabase.getReference("message");
+
+        androidFormRef.setValue("Hello, World!");
+
         final String userId = Integer.toString(getId());
 
-    androidFormDatabase.child("Form").child(userId).addListenerForSingleValueEvent(new ValueEventListener()
-    {
+    androidFormDatabase.child("Form").child(firstName).addValueEventListener(new ValueEventListener() {
         @Override
-        public void onDataChange(DataSnapshot dataSnapshot)
-        {
+        public void onDataChange(DataSnapshot dataSnapshot) {
             // Get user value
             Form form = dataSnapshot.getValue(Form.class);
 
-            if (form == null)
-            {
+            if (form == null) {
                 // User is null, error out
                 Log.e(TAG, "User " + userId + " is unexpectedly null");
 //               Toast.makeText(FormFragment.getActivity(),
 //                       "Error: could not fetch user.",
 //                     Toast.LENGTH_SHORT).show();
-            }
-            else
-            {
+            } else {
                 // Write new post
                 writeNewUser(userId, form.mFirstName, form.mLastName, form.mAge);
                 getActivity().finish();
             }
 
             // Finish this Activity, back to the stream
-    }
+        }
 
         @Override
-        public void onCancelled(DatabaseError databaseError)
-        {
+        public void onCancelled(DatabaseError databaseError) {
             Log.w(TAG, "getUser:onCancelled", databaseError.toException());
         }
     });
