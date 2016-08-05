@@ -133,7 +133,7 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
                 // Google Sign In failed, update UI appropriately
                 updateUI(null);
 
-                Toast.makeText(this, "Sign In Failed", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Sign in Failed", Toast.LENGTH_LONG).show();
             }
         }
     }
