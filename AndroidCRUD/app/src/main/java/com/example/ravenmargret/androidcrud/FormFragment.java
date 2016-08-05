@@ -17,6 +17,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class FormFragment extends Fragment
 {
@@ -97,10 +99,10 @@ public class FormFragment extends Fragment
             {
                 // Write new post
                 writeNewUser(userId, form.mFirstName, form.mLastName, form.mAge);
+                getActivity().finish();
             }
 
             // Finish this Activity, back to the stream
-            getActivity().finish();
     }
 
         @Override
@@ -115,22 +117,14 @@ public class FormFragment extends Fragment
     public void writeNewUser(String userId, String firstName, String lastName, Double age)
     {
         String newage = Double.toString(age);
-        String key = androidFormDatabase.child("Form").push().getKey();
+        String key = androidFormDatabase.child("post").push().getKey();
         Post post = new Post(userId, firstName, lastName, newage);
+        Map<String, Object> postValues = post.toMap();
 
-        ArrayList<Post> postValues = new ArrayList<>(post);
-
-        ArrayList<String> childUpdates = new ArrayList<>();
-        childUpdates.add(key, postValues);
-        childUpdates.add("/user-posts/" + userId + "/" + key, postValues);
+        Map<String, Object> childUpdates = new HashMap<>();
+        childUpdates.put("/posts/" + key, postValues);
+        childUpdates.put("/user-posts/" + userId + "/" + key, postValues);
 
         androidFormDatabase.updateChildren(childUpdates);
-//        Form form = new Form(firstName, lastName, age);
-//
-//        Toast.makeText(getActivity(), "Contact Added", Toast.LENGTH_LONG).show();
-//
-//        androidFormDatabase.child("Form").child(userId).setValue(form);
-//
-//        getActivity().finish();
     }
 }

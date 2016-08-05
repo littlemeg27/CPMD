@@ -3,6 +3,8 @@ package com.example.ravenmargret.androidcrud;
 import com.google.firebase.database.Exclude;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Brenna Pavlinchak on 8/5/16.
@@ -13,7 +15,7 @@ public class Post
     String first;
     String last;
     String age;
-    ArrayList<String> post = new ArrayList<>();
+    public Map<String, Boolean> post = new HashMap<>();
 
     public Post()
     {
@@ -30,13 +32,13 @@ public class Post
 
     // [START post_to_map]
     @Exclude
-    public ArrayList<String> to()
+    public Map<String, Object> toMap()
     {
-        ArrayList<String> result = new ArrayList<>();
-        result.add(uid);
-        result.add(first);
-        result.add(last);
-        result.add(age);
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("uid", uid);
+        result.put("first", first);
+        result.put("last", last);
+        result.put("age", age);
 
         return result;
     }
