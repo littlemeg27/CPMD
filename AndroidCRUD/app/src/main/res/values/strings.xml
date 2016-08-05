@@ -13,11 +13,11 @@
     <string name="sign_out">Sign Out</string>
 
     <string name="title_activity_list">ListActivity</string>
-    <string name="signed_out">signed_out</string>
+    <string name="signed_out">Signed Out</string>
     <string name="google_status_fmt">google_status_fmt</string>
     <string name="firebase_status_fmt">firebase_status_fmt</string>
     <string name="desc_firebase_lockup">desc_firebase_lockup</string>
-    <string name="google_title_text">google_title_text</string>
+    <string name="google_title_text">Google</string>
     <string name="disconnect">disconnect</string>
 
 </resources>
