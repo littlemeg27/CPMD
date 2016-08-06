@@ -32,8 +32,11 @@ public class FormFragment extends Fragment
     String firstName;
     String lastName;
     Double age;
+    
+    FirebaseDatabase androidFormDatabase = FirebaseDatabase.getInstance();
+    DatabaseReference androidFormRef = androidFormDatabase.getReference("Form");
 
-    private DatabaseReference androidFormDatabase;
+    //private DatabaseReference androidFormRef;
 
     public FormFragment()
     {
@@ -52,7 +55,7 @@ public class FormFragment extends Fragment
     {
         super.onActivityCreated(savedInstanceState);
 
-        androidFormDatabase = FirebaseDatabase.getInstance().getReference();
+        androidFormRef = FirebaseDatabase.getInstance().getReference();
 
         firstNameText = (EditText)getView().findViewById(R.id.firstNameText);
         lastNameText = (EditText)getView().findViewById(R.id.lastNameText);
@@ -65,38 +68,25 @@ public class FormFragment extends Fragment
         lastName = lastNameText.getText().toString();
         age = Double.parseDouble(ageText.getText().toString());
 
-//        // Title is required
-//        if (TextUtils.isEmpty(title)) {
-//            mTitleField.setError(REQUIRED);
-//            return;
-//        }
-//
-//        // Body is required
-//        if (TextUtils.isEmpty(body)) {
-//            mBodyField.setError(REQUIRED);
-//            return;
-//        }
-
-        FirebaseDatabase androidFormDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference androidFormRef = androidFormDatabase.getReference("message");
-
-        androidFormRef.setValue("Hello, World!");
+        androidFormRef.setValue(firstName);
+        androidFormRef.setValue(lastName);
+        androidFormRef.setValue(age);
 
         final String userId = Integer.toString(getId());
 
-    androidFormDatabase.child("Form").child(firstName).addValueEventListener(new ValueEventListener() {
+        androidFormRef.child("Form").child(userId).addValueEventListener(new ValueEventListener() {
         @Override
         public void onDataChange(DataSnapshot dataSnapshot) {
             // Get user value
             Form form = dataSnapshot.getValue(Form.class);
 
-            if (form == null) {
+            if (form == null)
+            {
                 // User is null, error out
                 Log.e(TAG, "User " + userId + " is unexpectedly null");
-//               Toast.makeText(FormFragment.getActivity(),
-//                       "Error: could not fetch user.",
-//                     Toast.LENGTH_SHORT).show();
-            } else {
+            }
+            else
+            {
                 // Write new post
                 writeNewUser(userId, form.mFirstName, form.mLastName, form.mAge);
                 getActivity().finish();
@@ -115,15 +105,15 @@ public class FormFragment extends Fragment
 
     public void writeNewUser(String userId, String firstName, String lastName, Double age)
     {
-        String newage = Double.toString(age);
-        String key = androidFormDatabase.child("post").push().getKey();
-        Post post = new Post(userId, firstName, lastName, newage);
+        String newAge = Double.toString(age);
+        String key = androidFormRef.child("post").push().getKey();
+        Post post = new Post(userId, firstName, lastName, newAge);
         Map<String, Object> postValues = post.toMap();
 
         Map<String, Object> childUpdates = new HashMap<>();
         childUpdates.put("/posts/" + key, postValues);
         childUpdates.put("/user-posts/" + userId + "/" + key, postValues);
 
-        androidFormDatabase.updateChildren(childUpdates);
+        androidFormRef.updateChildren(childUpdates);
     }
 }
