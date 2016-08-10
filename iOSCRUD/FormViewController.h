@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface FormViewController : UIViewController
-
+{
+    UITextField *firstNameTextField;
+    UITextField *lastNameTextField;
+    UITextField *ageNameTextField;
+    UIButton *addButton;
+}
 @end
