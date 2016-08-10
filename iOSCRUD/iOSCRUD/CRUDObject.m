@@ -10,6 +10,17 @@
 
 @implementation CRUDObject
 
+@synthesize firstName, lastName, age;
 
+-(id)initWithTitle:(NSString*)firstNameObject crudObject:(NSString *)lastNameObject crudObject:(NSString *)ageObject
+{
+    if((self = [super init]))
+    {
+        [self setFirstName:firstNameObject];
+        [self setLastName:lastNameObject];
+        [self setAge:ageObject];
+    }
+    return self;
+}
 
 @end

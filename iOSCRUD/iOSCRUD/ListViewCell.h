@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface ListViewCell : UITableViewCell
+{
+    IBOutlet UILabel *firstNameLabel;
+}
+
+@property (nonatomic, strong) UILabel* firstNameLabel;
 
 @end
