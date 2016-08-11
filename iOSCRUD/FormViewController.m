@@ -8,7 +8,7 @@
 
 #import "FormViewController.h"
 
-#define BUTTONLOGIN 0
+#define BUTTONADD 0
 
 @interface FormViewController ()
 
@@ -60,26 +60,25 @@
             [addButton setTitle:@"Add" forState:UIControlStateNormal];
             [addButton setTitle:@"Adding" forState:UIControlStateHighlighted];
             [addButton addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
-            addButton.tag = BUTTONLOGIN;
+            addButton.tag = BUTTONADD;
         }
     [self.view addSubview:addButton];
 }
 
 - (void)onClick:(UIButton*) addButton
 {
-    if(addButton.tag == BUTTONLOGIN) //if for the username button
+    if(addButton.tag == BUTTONADD) //if for the username button
     {
-        NSString *userNameText = [addButton text];
         
-        if(userNameText.length > 0)
-        {
-
-        }
-        
-        else
-        {
-            
-        }
+//        if(userNameText.length > 0)
+//        {
+//
+//        }
+//        
+//        else
+//        {
+//            
+//        }
         
     }//End of checks for button
     

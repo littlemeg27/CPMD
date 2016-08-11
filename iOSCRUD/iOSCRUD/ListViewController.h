@@ -9,5 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface ListViewController : UIViewController
-
+{
+    IBOutlet UITableView *tableView;
+    
+    NSMutableArray *firstNameArray;
+    NSMutableArray *lastNameArray;
+    NSMutableArray *ageArray;
+}
 @end

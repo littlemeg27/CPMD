@@ -10,9 +10,12 @@
 
 @interface FormViewController : UIViewController
 {
-    UITextField *firstNameTextField;
-    UITextField *lastNameTextField;
-    UITextField *ageNameTextField;
-    UIButton *addButton;
+    IBOutlet UITextField *firstNameTextField;
+    IBOutlet UITextField *lastNameTextField;
+    IBOutlet UITextField *ageNameTextField;
+    IBOutlet UIButton *addButton;
 }
+
+-(IBAction)addButton:(id)sender;
+
 @end

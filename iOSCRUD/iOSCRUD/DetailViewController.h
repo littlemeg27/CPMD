@@ -10,10 +10,10 @@
 
 @interface DetailViewController : UIViewController
 {
-    IBOutlet UILabel* firstNameLabel;
-    IBOutlet UILabel* lastNameLabel;
-    IBOutlet UILabel* ageLabel;
-    IBOutlet UIButton* backButton;
+    IBOutlet UILabel *firstNameLabel;
+    IBOutlet UILabel *lastNameLabel;
+    IBOutlet UILabel *ageLabel;
+    IBOutlet UIButton *deleteButton;
 }
 
 @property(nonatomic, copy) NSString* firstName;
@@ -21,6 +21,6 @@
 @property(nonatomic, copy) NSString* age;
 
 -(void)updateUILabel;
--(IBAction)backButton:(id)sender;
+-(IBAction)deleteButton:(id)sender;
 
 @end
