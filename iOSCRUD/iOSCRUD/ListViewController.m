@@ -38,7 +38,7 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
-        NSLog(@"I want to delete: %d", indexPath.row);
+        NSLog(@"I want to delete: %ld", (long)indexPath.row);
             
         [firstNameArray removeObjectAtIndex:indexPath.row];
             
@@ -76,7 +76,9 @@
         
     if(detailView !=nil)
     {
-        detailView.name = [crudArray objectAtIndex:indexPath.row]; //Show the name on the detail page
+        detailView.firstName = [firstNameArray objectAtIndex:indexPath.row]; //Show the name on the detail page
+        detailView.lastName = [lastNameArray objectAtIndex:indexPath.row]; //Show the name on the detail page
+        detailView.age = [ageArray objectAtIndex:indexPath.row]; //Show the name on the detail page
         [self presentViewController:detailView animated:YES completion:nil];
         [detailView updateUILabel];
     }
