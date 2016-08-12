@@ -6,6 +6,10 @@ target 'iOSCRUD' do
   # use_frameworks!
 
   # Pods for iOSCRUD
+    pod 'Firebase/Core'
+    pod 'Firebase/Database'
+    pod 'Firebase/Auth'
+    pod 'GoogleSignIn'
 
   target 'iOSCRUDTests' do
     inherit! :search_paths
