@@ -14,16 +14,27 @@
 
 @implementation SignInViewController
 
+@synthesize signInButton;
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     // TODO(developer) Configure the sign-in button look/feel
     
+    signInButton = [UIButton buttonWithType:UIButtonTypeRoundedRect]; //Start of the login button
+    
+    if(signInButton !=nil)
+    {
+        signInButton.frame = CGRectMake(300.0, 90.0, 110.0, 40.0);
+    }
+    [self.view addSubview:signInButton];
+    
     [GIDSignIn sharedInstance].uiDelegate = self;
     
-    // Uncomment to automatically sign in the user.
-    //[[GIDSignIn sharedInstance] signInSilently];
+    //Uncomment to automatically sign in the user.
+    [[GIDSignIn sharedInstance] signInSilently];
 }
 
 - (void)signIn:(GIDSignIn *)signIn didSignInForUser:(GIDGoogleUser *)user withError:(NSError *)error {
@@ -33,11 +44,18 @@
         GIDAuthentication *authentication = user.authentication;
         FIRAuthCredential *credential = [FIRGoogleAuthProvider credentialWithIDToken:authentication.idToken
                                          accessToken:authentication.accessToken];
+        
+        [[FIRAuth auth] signInWithCredential:credential completion:^(FIRUser *user, NSError *error)
+         {
+             
+         }];
     }
     else
     {
         
     }
+    
+
 }
 
 - (void)didReceiveMemoryWarning {
