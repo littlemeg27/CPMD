@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <GoogleSignIn/GoogleSignIn.h>
+#import <Google/SignIn.h>
 
 @import Firebase;
 
@@ -15,7 +16,5 @@
 {
     
 }
-
-@property(weak, nonatomic) IBOutlet GIDSignInButton *signInButton;
 
 @end
