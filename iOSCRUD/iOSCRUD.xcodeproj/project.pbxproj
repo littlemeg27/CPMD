@@ -16,6 +16,7 @@
 		BA1B745C1D596EF400CF2812 /* CRUDObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1B745B1D596EF400CF2812 /* CRUDObject.m */; };
 		BA1B745E1D5BBBEA00CF2812 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA1B745D1D5BBBEA00CF2812 /* GoogleService-Info.plist */; };
 		BA41F4A51D5C74F300CB04C0 /* FormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA41F4A41D5C74F300CB04C0 /* FormViewController.m */; };
+		BA41F4A81D5D4F4D00CB04C0 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA41F4A71D5D4F4D00CB04C0 /* SignInViewController.m */; };
 		BAB580D01D592E990041D8CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB580CF1D592E990041D8CA /* main.m */; };
 		BAB580D31D592E990041D8CA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB580D21D592E990041D8CA /* AppDelegate.m */; };
 		BAB580D91D592E9A0041D8CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAB580D71D592E9A0041D8CA /* Main.storyboard */; };
@@ -60,6 +61,8 @@
 		BA1B745D1D5BBBEA00CF2812 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BA41F4A31D5C74F300CB04C0 /* FormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormViewController.h; sourceTree = "<group>"; };
 		BA41F4A41D5C74F300CB04C0 /* FormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormViewController.m; sourceTree = "<group>"; };
+		BA41F4A61D5D4F4D00CB04C0 /* SignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
+		BA41F4A71D5D4F4D00CB04C0 /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
 		BAB580CB1D592E970041D8CA /* iOSCRUD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSCRUD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAB580CF1D592E990041D8CA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BAB580D11D592E990041D8CA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -142,6 +145,8 @@
 				BA1B74581D596A4D00CF2812 /* ListViewCell.m */,
 				BA1B74511D5947E700CF2812 /* DetailViewController.h */,
 				BA1B74521D5947E700CF2812 /* DetailViewController.m */,
+				BA41F4A61D5D4F4D00CB04C0 /* SignInViewController.h */,
+				BA41F4A71D5D4F4D00CB04C0 /* SignInViewController.m */,
 				BA1B745A1D596EF400CF2812 /* CRUDObject.h */,
 				BA1B745B1D596EF400CF2812 /* CRUDObject.m */,
 				BAB580D71D592E9A0041D8CA /* Main.storyboard */,
@@ -465,6 +470,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA41F4A81D5D4F4D00CB04C0 /* SignInViewController.m in Sources */,
 				BA1B74561D59482400CF2812 /* ListViewController.m in Sources */,
 				BA1B745C1D596EF400CF2812 /* CRUDObject.m in Sources */,
 				BA41F4A51D5C74F300CB04C0 /* FormViewController.m in Sources */,
