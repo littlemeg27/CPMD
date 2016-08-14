@@ -14,12 +14,11 @@
 
 @implementation SignInViewController
 
-
-
-
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    printf("Beginiging viewDidLoad\n");
     
     // TODO(developer) Configure the sign-in button look/feel
     
@@ -27,6 +26,8 @@
     
     //Uncomment to automatically sign in the user.
     [[GIDSignIn sharedInstance] signInSilently];
+    
+    printf("End viewDidLoad\n");
 }
 
 - (void)signIn:(GIDSignIn *)signIn didSignInForUser:(GIDGoogleUser *)user withError:(NSError *)error {
@@ -36,10 +37,11 @@
         GIDAuthentication *authentication = user.authentication;
         FIRAuthCredential *credential = [FIRGoogleAuthProvider credentialWithIDToken:authentication.idToken
                                          accessToken:authentication.accessToken];
+        printf("Inside signIn\n");
         
         [[FIRAuth auth] signInWithCredential:credential completion:^(FIRUser *user, NSError *error)
          {
-             
+             printf("Inside signInWithCredential\n");
          }];
     }
     else
@@ -53,14 +55,14 @@
 
 // Stop the UIActivityIndicatorView animation that was started when the user
 // pressed the Sign In button
-- (void)signInWillDispatch:(GIDSignIn *)signIn error:(NSError *)error
-{
-    [myActivityIndicator stopAnimating];
-}
+//- (void)signInWillDispatch:(GIDSignIn *)signIn error:(NSError *)error
+//{
+//    [myActivityIndicator stopAnimating];
+//}
+//
 
 // Present a view that prompts the user to sign in with Google
-- (void)signIn:(GIDSignIn *)signIn
-presentViewController:(UIViewController *)viewController
+- (void)signIn:(GIDSignIn *)signIn presentViewController:(UIViewController *)viewController
 {
     [self presentViewController:viewController animated:YES completion:nil];
 }
@@ -68,7 +70,7 @@ presentViewController:(UIViewController *)viewController
 // Dismiss the "Sign in with Google" view
 - (void)signIn:(GIDSignIn *)signIn dismissViewController:(UIViewController *)viewController
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+   [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning

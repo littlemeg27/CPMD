@@ -17,4 +17,6 @@
     
 }
 
+@property(weak, nonatomic) IBOutlet GIDSignInButton *signInButton;
+
 @end

@@ -23,6 +23,7 @@
     
     [GIDSignIn sharedInstance].clientID = [FIRApp defaultApp].options.clientID;
     [GIDSignIn sharedInstance].delegate = self;
+    printf("Inside didFinishLaunchingWithOptions\n");
     return YES;
 }
 
@@ -49,18 +50,14 @@
 }
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *, id> *)options {
-    return [[GIDSignIn sharedInstance] handleURL:url
-                               sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+    return [[GIDSignIn sharedInstance] handleURL:url sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
                                       annotation:options[UIApplicationOpenURLOptionsAnnotationKey]];
 }
 
 - (void)signIn:(GIDSignIn *)signIn didSignInForUser:(GIDGoogleUser *)user withError:(NSError *)error {
     if (error == nil)
     {
-//        [[FIRAuth auth] signInWithCredential:credential completion:^(FIRUser *user, NSError *error)
-//        {
-//                                      // ...
-//        }];
+        printf("didSignInForUser\n");
     }
     else
     {

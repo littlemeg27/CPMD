@@ -53,7 +53,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1415" y="-44"/>
+            <point key="canvasLocation" x="1709" y="-44"/>
         </scene>
         <!--Form View Controller-->
         <scene sceneID="EPx-Bm-lw4">
@@ -103,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kyL-6b-q80" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1415" y="-854"/>
+            <point key="canvasLocation" x="1709" y="-854"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="ciL-wV-Ec6">
@@ -116,19 +116,13 @@
                     <view key="view" contentMode="scaleToFill" id="tFj-KC-cO4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7XO-F0-OAs">
-                                <rect key="frame" x="144" y="509" width="127" height="42"/>
-                                <state key="normal" title="Sign In"/>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rpl-vO-kUx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="763" y="-854"/>
+            <point key="canvasLocation" x="645" y="-854"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="wja-xG-uE3">
@@ -165,7 +159,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IEv-bd-7zM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="763" y="-44"/>
+            <point key="canvasLocation" x="645" y="-44"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Yy2-1Z-Ul0">
@@ -179,7 +173,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="IXr-1v-3pU" kind="presentation" id="9Cs-Mc-OO7"/>
+                        <segue destination="IXr-1v-3pU" kind="presentation" id="orV-z7-5MN"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eBJ-H0-DzR" userLabel="First Responder" sceneMemberID="firstResponder"/>
