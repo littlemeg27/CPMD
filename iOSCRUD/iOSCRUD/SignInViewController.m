@@ -25,7 +25,7 @@
     [GIDSignIn sharedInstance].uiDelegate = self;
     
     //Uncomment to automatically sign in the user.
-    [[GIDSignIn sharedInstance] signInSilently];
+//    [[GIDSignIn sharedInstance] signInSilently];
     
     printf("End viewDidLoad\n");
 }
@@ -49,36 +49,6 @@
         
     }
 }
-
-// Implement these methods only if the GIDSignInUIDelegate is not a subclass of
-// UIViewController.
-
-// Stop the UIActivityIndicatorView animation that was started when the user
-// pressed the Sign In button
-//- (void)signInWillDispatch:(GIDSignIn *)signIn error:(NSError *)error
-//{
-//    [myActivityIndicator stopAnimating];
-//}
-//
-
-// Present a view that prompts the user to sign in with Google
-- (void)signIn:(GIDSignIn *)signIn presentViewController:(UIViewController *)viewController
-{
-    [self presentViewController:viewController animated:YES completion:nil];
-}
-
-// Dismiss the "Sign in with Google" view
-- (void)signIn:(GIDSignIn *)signIn dismissViewController:(UIViewController *)viewController
-{
-   [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 /*
 #pragma mark - Navigation
